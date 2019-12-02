@@ -68,4 +68,10 @@ class AuthenticationController extends Controller
 
     }
 
+    public function logoutAction()
+    {
+        $this->session->destroy();
+        return $this->response->redirect('');
+    }
+
 }
