@@ -1,2 +1,2 @@
-# PBKK_FP_INDIVIDU
+# PBKK FP Individu
 Final Project Individu PBKK
