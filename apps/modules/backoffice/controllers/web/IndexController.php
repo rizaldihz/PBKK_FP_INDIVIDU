@@ -1,6 +1,6 @@
 <?php
 
-namespace Phalcon\Init\BackOffice\Controllers\Web;
+namespace MyModule\BackOffice\Controllers\Web;
 
 use Phalcon\Mvc\Controller;
 

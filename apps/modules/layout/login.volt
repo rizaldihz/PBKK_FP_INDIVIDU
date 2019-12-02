@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="{{url('adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{url('adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+  <link rel="stylesheet" href="{{url('adminlte/plugins/iCheck/all.css')}}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,12 +39,12 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body>
+<body class="login-page">
   {% block content%}
   {% endblock %}
   {% block footer %}
   {% endblock %}
-  <!-- jQuery 3 -->
+<!-- jQuery 3 -->
 <script src="{{url('adminlte/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{url('adminlte/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
@@ -80,6 +81,6 @@
 <script src="{{url('adminlte/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{url('adminlte/dist/js/demo.js')}}"></script>
-{% block morejs %}  
+{% block morejs %}
 {% endblock %}
 </body>

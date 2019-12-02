@@ -14,6 +14,34 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 	    'controller' => isset($modules[$defaultModule]['defaultController']) ? $modules[$defaultModule]['defaultController'] : 'index',
 	    'action' => isset($modules[$defaultModule]['defaultAction']) ? $modules[$defaultModule]['defaultAction'] : 'index'
 	]);
+
+	$router->addPost('/register', [
+	    'namespace' => 'MyModule\Auth\Controllers\Web',
+		'module' => 'authentication',
+	    'controller' => 'authentication',
+	    'action' => 'register'
+	]);
+
+	$router->addGet('/register', [
+	    'namespace' => 'MyModule\Auth\Controllers\Web',
+		'module' => 'authentication',
+	    'controller' => 'authentication',
+	    'action' => 'registerindex'
+	]);
+
+	$router->addPost('/login', [
+	    'namespace' => 'MyModule\Auth\Controllers\Web',
+		'module' => 'authentication',
+	    'controller' => 'authentication',
+	    'action' => 'login'
+	]);
+
+	$router->addGet('/login', [
+	    'namespace' => 'MyModule\Auth\Controllers\Web',
+		'module' => 'authentication',
+	    'controller' => 'authentication',
+	    'action' => 'index'
+	]);
 	
 	/**
 	 * Not Found Routing

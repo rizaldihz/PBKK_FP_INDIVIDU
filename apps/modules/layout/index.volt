@@ -11,11 +11,10 @@
 {% endblock %}
 
 {% block footer %}
-	<footer>
-                &copy; Copyright 2012-present. 
-                All rights reserved.
-
-	</footer>
+<footer class="main-footer">
+	&copy; Copyright 2012-present. 
+	All rights reserved.
+</footer>
 {% endblock %}
 
 {% block morejs %}

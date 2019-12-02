@@ -1,6 +1,6 @@
 <?php
 
-namespace Phalcon\Init\BackOffice;
+namespace MyModule\BackOffice;
 
 use Phalcon\DiInterface;
 use Phalcon\Loader;
@@ -13,9 +13,9 @@ class Module implements ModuleDefinitionInterface
         $loader = new Loader();
 
         $loader->registerNamespaces([
-            'Phalcon\Init\BackOffice\Controllers\Web' => __DIR__ . '/controllers/web',
-            'Phalcon\Init\BackOffice\Controllers\Api' => __DIR__ . '/controllers/api',
-            'Phalcon\Init\BackOffice\Models' => __DIR__ . '/models',
+            'MyModule\BackOffice\Controllers\Web' => __DIR__ . '/controllers/web',
+            'MyModule\BackOffice\Controllers\Api' => __DIR__ . '/controllers/api',
+            'MyModule\BackOffice\Models' => __DIR__ . '/models',
         ]);
 
         $loader->register();

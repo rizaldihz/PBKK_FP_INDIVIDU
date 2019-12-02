@@ -1,6 +1,6 @@
 <?php
 
-namespace Phalcon\Init\Dashboard\Controllers\Web;
+namespace MyModule\Dashboard\Controllers\Web;
 
 use Phalcon\Mvc\Controller;
 
