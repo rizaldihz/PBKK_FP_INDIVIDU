@@ -8,7 +8,7 @@ class DashboardController extends Controller
 {
     public function indexAction()
     {
-        $this->view->pick('dashboard/index');
+        $this->view->pick('views/dashboard/index');
     }
 
 }

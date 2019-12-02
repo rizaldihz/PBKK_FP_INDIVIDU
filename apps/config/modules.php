@@ -23,4 +23,15 @@ return array(
         'defaultAction' => 'index'
     ],
 
+    // 'layout' => [
+    //     'namespace' => 'Phalcon\Init\Layout',
+    //     'webControllerNamespace' => '',
+    //     'apiControllerNamespace' => 'Phalcon\Init\Layout\Controllers\Api',
+    //     'className' => 'Phalcon\Init\Layout\Module',
+    //     'path' => APP_PATH . '/modules/layout/Module.php',
+    //     'defaultRouting' => true,
+    //     'defaultController' => 'index',
+    //     'defaultAction' => 'index'
+    // ],
+
 );
