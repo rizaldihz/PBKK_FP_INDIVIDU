@@ -11,10 +11,10 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Log in untuk mengakses akun</p>
-
+    {{ flashSession.output() }}
     <form action="{{url('login')}}" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Nomor KTP" name="ktp">
+        <input type="text" class="form-control" placeholder="Nomor KTP" name="ktp">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -33,7 +33,7 @@
     <br>
 
     <a href="#">Lupa Password</a><br>
-    <a href="register.html" class="text-center">Daftar Menjadi Donatur</a>
+    <a href="{{url('register')}}" class="text-center">Daftar Menjadi Donatur</a>
 
   </div>
   <!-- /.login-box-body -->

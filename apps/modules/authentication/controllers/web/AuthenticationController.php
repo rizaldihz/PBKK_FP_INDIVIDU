@@ -44,24 +44,26 @@ class AuthenticationController extends Controller
     {
         $ktp    = $this->request->getPost('ktp');
         $pass   = $this->request->getPost('password');
-    	$user = Users::find([
-            'conditions' => 'ktp = :ktp: AND password = :password:',
-            'bind' => [
-                'ktp'   => $ktp,
-                'password'  => $this->security->hash($pass) 
+    	$get_user   = Users::findFirst(
+            [
+                "conditions" => "ktp = :ktp:",
+                "bind" => [
+                    "ktp"   => $ktp
+                ],
             ]
-        ]);
-
-        if($user === false){
+        );
+        if($get_user === false){
             $this->flashSession->error("KTP atau Password yang anda inputkan salah.");
             return $this->response->redirect('login');
         }else{
-            $data['ktp'] = $user->ktp;
-            $data['nama'] = $user->nama;
+            if(!$this->security->checkHash($pass,$get_user->password)){
+                $this->flashSession->error("KTP atau Password yang anda inputkan salah.");
+                return $this->response->redirect('login');
+            }
             // $this->session->set('auth',[
             //     'username' => $user->username
             // ]);
-            $this->session->set('auth',$data);
+            $this->session->set('auth',$get_user);
         }
 
         return $this->response->redirect('');

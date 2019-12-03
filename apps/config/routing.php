@@ -43,6 +43,12 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 	    'action' => 'index'
 	]);
 	
+	$router->addGet('/logout', [
+	    'namespace' => 'MyModule\Auth\Controllers\Web',
+		'module' => 'authentication',
+	    'controller' => 'authentication',
+	    'action' => 'logout'
+	]);
 	/**
 	 * Not Found Routing
 	 */

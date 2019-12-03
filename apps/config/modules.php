@@ -34,13 +34,13 @@ return array(
     ],
 
     // 'layout' => [
-    //     'namespace' => 'Phalcon\Init\Layout',
-    //     'webControllerNamespace' => '',
-    //     'apiControllerNamespace' => 'Phalcon\Init\Layout\Controllers\Api',
-    //     'className' => 'Phalcon\Init\Layout\Module',
+    //     'namespace' => 'MyModule\Layout',
+    //     'webControllerNamespace' => 'MyModule\Layout\Controllers',
+    //     'apiControllerNamespace' => '',
+    //     'className' => 'MyModule\Layout\Module',
     //     'path' => APP_PATH . '/modules/layout/Module.php',
-    //     'defaultRouting' => true,
-    //     'defaultController' => 'index',
+    //     'defaultRouting' => false,
+    //     'defaultController' => 'authentication',
     //     'defaultAction' => 'index'
     // ],
 
