@@ -20,6 +20,15 @@ class Resipien extends My_Model
 	public function initialize()
     {
         $this->setSource('resipien');
+
+        $this->hasMany(
+            'id',
+            'MyModel\Kebutuhan',
+            'resipien_id',
+            [
+                'alias' => 'kebutuhan'
+            ]
+        );
     }
 
     public function registrasi($data)

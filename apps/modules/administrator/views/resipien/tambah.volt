@@ -59,7 +59,7 @@
                   </div>
                   <div class="form-group col-xs-4">
                     <label for="bukti_gambar">File input</label>
-                    <input type="file" id="exampleInputFile" name="bukti_gambar" accept=".jpg, .jpeg, .png" multiple>
+                    <input type="file" id="exampleInputFile" name="bukti_gambar[]" accept=".jpg, .jpeg, .png" multiple>
                     <p class="help-block">Pilih Foto untuk bukti</p>
                   </div>
                 </div>

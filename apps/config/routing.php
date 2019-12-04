@@ -98,6 +98,55 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 	    'controller' => 'resipien',
 	    'action' => 'hapus'
 	]);
+
+	$router->addGet('/kebutuhan/tambah', [
+	    'namespace' => 'MyModule\Admin\Controllers\Web',
+		'module' => 'administrator',
+	    'controller' => 'kebutuhan',
+	    'action' => 'tambah'
+	]);
+
+	$router->addPost('/kebutuhan/tambah', [
+	    'namespace' => 'MyModule\Admin\Controllers\Web',
+		'module' => 'administrator',
+	    'controller' => 'kebutuhan',
+	    'action' => 'tambah'
+	]);
+
+	$router->addGet('/kebutuhan', [
+	    'namespace' => 'MyModule\Admin\Controllers\Web',
+		'module' => 'administrator',
+	    'controller' => 'kebutuhan',
+	    'action' => 'index'
+	]);
+
+	$router->addPost('/kebutuhan', [
+	    'namespace' => 'MyModule\Admin\Controllers\Web',
+		'module' => 'administrator',
+	    'controller' => 'kebutuhan',
+	    'action' => 'index'
+	]);
+
+	$router->addGet('/kebutuhan/edit/{param}', [
+	    'namespace' => 'MyModule\Admin\Controllers\Web',
+		'module' => 'administrator',
+	    'controller' => 'kebutuhan',
+	    'action' => 'edit'
+	]);
+
+	$router->addPost('/kebutuhan/edit', [
+	    'namespace' => 'MyModule\Admin\Controllers\Web',
+		'module' => 'administrator',
+	    'controller' => 'kebutuhan',
+	    'action' => 'edit'
+	]);
+
+	$router->addPost('/kebutuhan/hapus', [
+	    'namespace' => 'MyModule\Admin\Controllers\Web',
+		'module' => 'administrator',
+	    'controller' => 'kebutuhan',
+	    'action' => 'hapus'
+	]);
 	/**
 	 * Not Found Routing
 	 */

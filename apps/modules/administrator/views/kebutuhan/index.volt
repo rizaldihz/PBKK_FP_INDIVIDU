@@ -1,6 +1,6 @@
 {% extends '../layout/index.volt' %}
 
-{% block title %}Resipien Index{% endblock %}
+{% block title %}Kebutuhan Index{% endblock %}
 
 {% block morecss%}
 <link rel="stylesheet" href="{{url('adminlte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
@@ -9,7 +9,7 @@
 {% block content %}
 <div class="content-wrapper">
 	<section class="content-header">
-      <h1>Daftar Resipien Saat Ini</h1>
+      <h1>Daftar Kebutuhan Saat Ini</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Examples</a></li>
@@ -35,8 +35,8 @@
           {% if session.get('auth').priviliges == 1 %}
           <div class="row">
             <div class="col-sm-3 pull-right text-right">
-              <a href="{{url("resipien/tambah")}}">
-                <button class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Resipien</button>
+              <a href="{{url("kebutuhan/tambah")}}">
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Kebutuhan</button>
               </a>
             </div>
           </div>
@@ -47,10 +47,10 @@
 	            <thead>
 	            <tr>
 	              <th style="width:30px">Nomor</th>
-	              <th>Nama</th>
-	              <th style="width:100px">Jenis Kelamin</th>
-	              <th>Nomor Telepon</th>
-	              <th>Alamat</th>
+	              <th>Kebutuhan</th>
+	              <th style="width:100px">Jumlah</th>
+	              <th>Label</th>
+	              <th>Resipien</th>
                 {% if session.get('auth').priviliges == 1 %}
 	              <th>Options</th>
                 {% endif %}
@@ -133,21 +133,21 @@ $(document).ready(function() {
   $('#view-penerima').DataTable({
     serverSide: true,
     ajax: {
-        url: "{{url('resipien')}}",
+        url: "{{url('kebutuhan')}}",
         method: 'POST'
     },
     columns: [
         {data: "id", searchable: false},
-        {data: "nama"},
-        {data: "jk"},
-        {data: "no_telp"},
-        {data: "alamat"}
+        {data: "knama"},
+        {data: "jumlah"},
+        {data: "lnama"},
+        {data: "rnama"}
     ],
     {% if session.get('auth').priviliges == 1 %}
     columnDefs: [ {
   	  targets: [5],
   	  "render": function (data, type, row, meta) {
-  	     return '<a href="{{url("resipien/edit/'+row.id+'")}}"><button class="btn btn-primary">Edit</button></a>&nbsp;<button onclick="hapus('+row.id+')" class="btn btn-danger">Hapus</button>';
+  	     return '<a href="{{url("kebutuhan/edit/'+row.id+'")}}"><button class="btn btn-primary">Edit</button></a>&nbsp;<button onclick="hapus('+row.id+')" class="btn btn-danger">Hapus</button>';
   	   }
   	}],
     {% endif %}
@@ -164,7 +164,7 @@ function confirm()
 {
   $("#confirm-delete").prop("disabled", true);
   $.ajax({
-    url : '{{url("resipien/hapus")}}',
+    url : '{{url("kebutuhan/hapus")}}',
     type : 'POST',
     data : $("#id").serialize(),
     success: function(result) {
