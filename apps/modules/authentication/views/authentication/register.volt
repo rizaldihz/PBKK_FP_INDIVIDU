@@ -42,8 +42,12 @@
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback" style="margin-bottom:28px">
-              <input type="checkbox" class="minimal" name="jk" value="L"> Laki-laki &nbsp;
-              <input type="checkbox" class="minimal" name="jk" value="P"> Perempuan
+              <label>
+                <input type="radio" class="minimal" name ="jk" value="L"> Laki-laki
+              </label>
+              <label>
+                <input type="radio" class="minimal" name ="jk" value="P"> Perempuan
+              </label>
           </div>
           <div class="form-group has-feedback">
             <input type="date" class="form-control" placeholder="Tanggal Lahir" name="tanggal_lahir">

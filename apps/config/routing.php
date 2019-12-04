@@ -49,14 +49,64 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 	    'controller' => 'authentication',
 	    'action' => 'logout'
 	]);
+
+	$router->addGet('/resipien/tambah', [
+	    'namespace' => 'MyModule\Admin\Controllers\Web',
+		'module' => 'administrator',
+	    'controller' => 'resipien',
+	    'action' => 'tambah'
+	]);
+
+	$router->addPost('/resipien/tambah', [
+	    'namespace' => 'MyModule\Admin\Controllers\Web',
+		'module' => 'administrator',
+	    'controller' => 'resipien',
+	    'action' => 'tambah'
+	]);
+
+	$router->addGet('/resipien', [
+	    'namespace' => 'MyModule\Admin\Controllers\Web',
+		'module' => 'administrator',
+	    'controller' => 'resipien',
+	    'action' => 'index'
+	]);
+
+	$router->addPost('/resipien', [
+	    'namespace' => 'MyModule\Admin\Controllers\Web',
+		'module' => 'administrator',
+	    'controller' => 'resipien',
+	    'action' => 'index'
+	]);
+
+	$router->addGet('/resipien/edit/{param}', [
+	    'namespace' => 'MyModule\Admin\Controllers\Web',
+		'module' => 'administrator',
+	    'controller' => 'resipien',
+	    'action' => 'edit'
+	]);
+
+	$router->addPost('/resipien/edit', [
+	    'namespace' => 'MyModule\Admin\Controllers\Web',
+		'module' => 'administrator',
+	    'controller' => 'resipien',
+	    'action' => 'edit'
+	]);
+
+	$router->addPost('/resipien/hapus', [
+	    'namespace' => 'MyModule\Admin\Controllers\Web',
+		'module' => 'administrator',
+	    'controller' => 'resipien',
+	    'action' => 'hapus'
+	]);
 	/**
 	 * Not Found Routing
 	 */
 	$router->notFound(
 		[
-			'namespace' => 'Phalcon\Init\Common\Controllers',
-			'controller' => 'base',
-			'action'     => 'route404',
+			'namespace' => 'MyModule\Dashboard\Controllers\Web',
+			'module' => 'dashboard',
+			'controller' => 'dashboard',
+			'action'     => 'error404',
 		]
 	);
 

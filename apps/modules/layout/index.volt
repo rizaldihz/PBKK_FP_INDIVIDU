@@ -3,6 +3,9 @@
 {% block title %}
 {% endblock %}
 
+{% block morecss%}
+{% endblock %}
+
 {% block content %}
 
 <h1>Index</h1>
@@ -12,8 +15,8 @@
 
 {% block footer %}
 <footer class="main-footer">
-	&copy; Copyright 2012-present. 
-	All rights reserved.
+	&copy; Copyright BrokerSedekah 	2019-present. 
+	<!-- All rights reserved. -->
 </footer>
 {% endblock %}
 

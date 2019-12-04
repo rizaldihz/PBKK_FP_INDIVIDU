@@ -10,8 +10,11 @@ class DashboardController extends MyController
     public function indexAction()
     {
     	$this->view->user = $this->session->get('auth');
-    	var_dump($this->view->user);die();
         $this->view->pick('views/dashboard/index');
     }
 
+    public function error404Action()
+    {
+    	$this->view->pick('views/dashboard/error404');
+    }
 }

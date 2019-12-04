@@ -13,4 +13,18 @@ class MyController extends Controller
     	}
     }
 
+    public function is_loggedin()
+    {
+    	if(!$this->session->has('auth'))
+    		return False;
+    	return True;
+    }
+
+    public function is_admin()
+    {
+    	if($this->session->has('auth') && $this->session->get('auth')->priviliges == 1)
+    		return True;
+    	return False;
+    }
+
 }

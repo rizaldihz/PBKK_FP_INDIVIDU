@@ -22,6 +22,7 @@ class ComposerStaticInitea81e84ec063c6af92c708a09b5ccc0f
         'D' => 
         array (
             'Dotenv\\' => 7,
+            'DataTables\\' => 11,
         ),
         'C' => 
         array (
@@ -41,6 +42,10 @@ class ComposerStaticInitea81e84ec063c6af92c708a09b5ccc0f
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
+        ),
+        'DataTables\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/m1ome/phalcon-datatables/src',
         ),
         'Composer\\Installers\\' => 
         array (

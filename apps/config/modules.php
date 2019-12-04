@@ -32,16 +32,14 @@ return array(
         'defaultController' => 'authentication',
         'defaultAction' => 'index'
     ],
-
-    // 'layout' => [
-    //     'namespace' => 'MyModule\Layout',
-    //     'webControllerNamespace' => 'MyModule\Layout\Controllers',
-    //     'apiControllerNamespace' => '',
-    //     'className' => 'MyModule\Layout\Module',
-    //     'path' => APP_PATH . '/modules/layout/Module.php',
-    //     'defaultRouting' => false,
-    //     'defaultController' => 'authentication',
-    //     'defaultAction' => 'index'
-    // ],
-
+    'administrator' => [
+        'namespace' => 'MyModule\Admin',
+        'webControllerNamespace' => 'MyModule\Admin\Controllers\Web',
+        'apiControllerNamespace' => 'MyModule\Admin\Controllers\Api',
+        'className' => 'MyModule\Admin\Module',
+        'path' => APP_PATH . '/modules/administrator/Module.php',
+        'defaultRouting' => true,
+        'defaultController' => 'administrator',
+        'defaultAction' => 'index'
+    ],
 );
