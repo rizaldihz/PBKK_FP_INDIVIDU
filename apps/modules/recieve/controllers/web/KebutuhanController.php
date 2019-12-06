@@ -90,6 +90,25 @@ class KebutuhanController extends MyController
                     "id" => $this->request->getPost('id')
                 ],
             ]);
+
+            $validator = new BaseValidator();
+            $messages = $validator->validate($_POST);
+            $fail = false;
+
+            if (count($messages)) {
+                foreach ($messages as $message) {
+                    $validasi[$message->getField()] = $message->getMessage();
+                    if(isset($_POST[$message->getField()])) $fail = true;
+                }
+
+                if($fail == true){
+                    $validasi['error'] = "ERROR";
+                    $this->view->disable();
+                    $this->response->setJsonContent(json_encode($validasi));
+                    return $this->response;
+                }
+            }
+
             $get_kebutuhan->registrasi($_POST);
             $get_kebutuhan->save();
 

@@ -7,17 +7,13 @@ use MyModel\Users;
 use MyModel\Kebutuhan;
 use MyModel\Label;
 use MyModel\Resipien;
+use MyModel\Donasi;
 use Phalcon\Http\Request;
 use MyLayout\MyController;
 use \DataTables\DataTable;
 
 class DonasiController extends MyController
 {
-	public function beforeExecuteRoute(){
-		if(!$this->is_admin() && $this->dispatcher->getactionName()!='index')
-			return $this->response->redirect('');
-	}
-
     public function indexAction()
     {
         if ($this->request->isAjax()) {
@@ -37,6 +33,9 @@ class DonasiController extends MyController
     {
         if($this->request->isPost()){
             $new_Donasi = new Donasi();
+            $_POST['users_id'] = $this->session->get('auth')->id;
+            $_POST['status'] = 0;
+            var_dump($_POST);
             $new_Donasi->registrasi($_POST);
             if($this->request->hasFiles() == true){
                 $uploads = $this->request->getUploadedFiles();
@@ -60,14 +59,13 @@ class DonasiController extends MyController
                     die('You must choose at least one file to send. Please try again.');
                 }
             }
-            $new_Donasi->file = $allpath;
-            $new_Donasi->save();
-            $this->flashSession->success("<i class='fa fa-check-circle'></i> Donasi berhasil ditambahkan.");
+            $new_Donasi->bukti_donasi = $allpath;
+            if($new_Donasi->save()) $this->flashSession->success("<i class='fa fa-check-circle'></i> Donasi berhasil ditambahkan.");
+            // var_dump($new_Donasi->getMessages());die();
         }
-        $get_label = Label::find();
+        $get_kebutuhan = Kebutuhan::find();
         $get_resipien = Resipien::find();
-        $this->view->labels = $get_label;
-        $this->view->resipien = $get_resipien;
+        $this->view->kebutuhan = $get_kebutuhan;
         $this->view->pick('views/donasi/tambah');
     }
 

@@ -48,7 +48,7 @@ return array(
         'apiControllerNamespace' => 'MyModule\Donasi\Controllers\Api',
         'className' => 'MyModule\Donasi\Module',
         'path' => APP_PATH . '/modules/donasi/Module.php',
-        'defaultRouting' => true,
+        'defaultRouting' => false,
         'defaultController' => 'donasi',
         'defaultAction' => 'index'
     ],

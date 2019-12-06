@@ -46,18 +46,22 @@
                 <div class="row">
                   <div class="form-group col-xs-6">
                     <label for="nama">Nama</label>
+                    <p class="pull-right text-right text-danger" style="display:none" id="nama"></p>
                     <input type="text" class="form-control" name="nama" placeholder="Nama Kebutuhan" value="{{kebutuhan.nama}}">
                   </div>
                   <div class="form-group col-xs-6">
                     <label for="jumlah">Jumlah</label>
+                    <p class="pull-right text-right text-danger" style="display:none" id="jumlah"></p>
                     <input type="text" class="form-control" name="jumlah" placeholder="Jumlah" value="{{kebutuhan.jumlah}}">
                   </div>
                   <div class="form-group col-xs-6">
                     <label for="nominal_uang">Dalam Rupiah</label>
+                    <p class="pull-right text-right text-danger" style="display:none" id="nominal_uang"></p>
                     <input type="text" class="form-control" name="nominal_uang" placeholder="Nominal uang" value="{{kebutuhan.nominal_uang}}">
                   </div>
                   <div class="form-group col-xs-6">
                     <label for="label_id">Kategori</label>
+                    <p class="pull-right text-right text-danger" style="display:none" id="label_id"></p>
                     <select class="form-control select2" style="width: 100%;" name="label_id">
                       {% for label in labels %}
                       <option value="{{label.id}}" {% if label.id == kebutuhan.label.id %}selected{% endif %}>{{label.nama}}</option>
@@ -66,6 +70,7 @@
                   </div>
                   <div class="form-group col-xs-6">
                     <label for="resipien_id">Resipien</label>
+                    <p class="pull-right text-right text-danger" style="display:none" id="resipien_id"></p>
                     <select class="form-control select2" style="width: 100%;" name="resipien_id">
                       {% for res in resipien %}
                       <option value="{{res.id}}" {% if res.id == kebutuhan.resipien.id %}selected{% endif %}>{{res.nama}}</option>
@@ -89,6 +94,7 @@
                   </div>
                   <div class="form-group col-xs-12">
                     <label for="keterangan">Keterangan</label>
+                    <p class="pull-right text-right text-danger" style="display:none" id="keterangan"></p>
                     <textarea class="form-control" rows="5" placeholder="Latar belakang alasan membutuhkan donasi ..." name="keterangan">{{kebutuhan.keterangan}}</textarea>
                   </div>
                 </div>
@@ -147,8 +153,15 @@ $(document).ready(function (e) {
       processData:false,        // To send DOMDocument or non processed data file it is set to false
       success: function(data)   // A function to be called if request succeeds
       {
-        // $('#loading').hide();
-        $("#message").modal('show');
+        if(data['error'] != null){
+          $("#message").modal('show');
+        }
+        else{
+          $.each(data, function( key, value ) {
+            $("#"+key).show();
+            $("#"+key).html(value);
+          });
+        }
       }
     });
   });

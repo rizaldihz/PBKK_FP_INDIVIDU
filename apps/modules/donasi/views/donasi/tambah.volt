@@ -1,19 +1,11 @@
 {% extends '../layout/index.volt' %}
 
-{% block title %}Tambah Kebutuhan{% endblock %}
-
-{% block morecss %}
-<link rel="stylesheet" href="{{url('adminlte/bower_components/select2/dist/css/select2.min.css')}}">
-<link rel="stylesheet" href="{{url('adminlte/dist/css/AdminLTE.min.css')}}">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="{{url('adminlte/dist/css/skins/_all-skins.min.css')}}">
-{% endblock %}
+{% block title %}Tambah Donasi{% endblock %}
 
 {% block content %}
 <div class="content-wrapper">
   <section class="content-header">
-      <h1>Tambah Kebutuhan</h1>
+      <h1>Tambah Donasi</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Examples</a></li>
@@ -30,47 +22,69 @@
             </div> -->
             <!-- /.box-header -->
             <!-- form start -->
-            {{flashSession.output()}}
-            <form action="{{url('kebutuhan/tambah')}}" role="form" method="post" enctype="multipart/form-data">
+            <form action="{{url('donasi/tambah')}}" role="form" method="post" enctype="multipart/form-data">
               <div class="box-body">
+                {{flashSession.output()}}
                 <div class="row">
                   <div class="form-group col-xs-6">
-                    <label for="nama">Nama</label>
-                    <input type="text" class="form-control" name="nama" placeholder="Nama Kebutuhan">
+                    <label for="judul">Judul Donasi</label>
+                    {% if validasi['judul'] is defined %}
+                      <p class="pull-right text-right text-danger">{{validasi['judul']}}</p>
+                    {% endif %}
+                    <input type="text" class="form-control" name="judul" placeholder="Judul Donasi">
+                  </div>
+                  <div class="form-group col-xs-6">
+                    <label for="kebutuhan_id">Kebutuhan</label>
+                    {% if validasi['kebutuhan_id'] is defined %}
+                      <p class="pull-right text-right text-danger">{{validasi['kebutuhan_id']}}</p>
+                    {% endif %}
+                    <select class="form-control select2" style="width: 100%;" name="kebutuhan_id">
+                      {% for butuh in kebutuhan %}
+                      <option value="{{butuh.id}}">{{butuh.nama}} - untuk {{butuh.resipien.nama}}</option>
+                      {% endfor %}
+                    </select>
                   </div>
                   <div class="form-group col-xs-6">
                     <label for="jumlah">Jumlah</label>
+                    {% if validasi['jumlah'] is defined %}
+                      <p class="pull-right text-right text-danger">{{validasi['jumlah']}}</p>
+                    {% endif %}
                     <input type="text" class="form-control" name="jumlah" placeholder="Jumlah">
+                    <!-- <p class="help-block">Example block-level help text here.</p> -->
                   </div>
-                  <div class="form-group col-xs-6">
-                    <label for="nominal_uang">Dalam Rupiah</label>
-                    <input type="text" class="form-control" name="nominal_uang" placeholder="Nominal uang">
-                  </div>
-                  <div class="form-group col-xs-6">
-                    <label for="label_id">Kategori</label>
-                    <select class="form-control select2" style="width: 100%;" name="label_id">
-                      {% for label in labels %}
-                      <option value="{{label.id}}">{{label.nama}}</option>
-                      {% endfor %}
-                    </select>
-                  </div>
-                  <div class="form-group col-xs-6">
-                    <label for="resipien_id">Resipien</label>
-                    <select class="form-control select2" style="width: 100%;" name="resipien_id">
-                      {% for res in resipien %}
-                      <option value="{{res.id}}">{{res.nama}}</option>
-                      {% endfor %}
-                    </select>
-                  </div>
-                  <div class="form-group col-xs-6">
-                    <label for="file">File input</label>
-                    <input type="file" id="exampleInputFile" name="file[]" multiple>
-                    <p class="help-block">Pilih Foto untuk menampilkan kebutuhan</p>
+                  <div class="form-group col-xs-4">
+                    <label for="bukti_donasi">File input</label>
+                    <input type="file" id="exampleInputFile" name="bukti_donasi[]" accept=".jpg, .jpeg, .png" multiple>
+                    <p class="help-block">Pilih Foto untuk bukti donasi</p>
                   </div>
                   <div class="form-group col-xs-12">
                     <label for="keterangan">Keterangan</label>
+                    {% if validasi['keterangan'] is defined %}
+                      <p class="pull-right text-right text-danger">{{validasi['keterangan']}}</p>
+                    {% endif %}
                     <textarea class="form-control" rows="5" placeholder="Latar belakang alasan membutuhkan donasi ..." name="keterangan"></textarea>
                   </div>
+                  <div class="form-group col-xs-6">
+                    <label for="tipe">Jenis Donasi</label>
+                    {% if validasi['donasi'] is defined %}
+                      <p class="pull-right text-right text-danger">{{validasi['donasi']}}</p>
+                    {% endif %}
+                    <div class="radio">
+                      <label>
+                        <input type="radio" class="minimal" name ="tipe" value="0"> Uang
+                      </label>
+                      <label>
+                        <input type="radio" class="minimal" name ="tipe" value="1"> Barang
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group col-xs-12">
+                    <label for="tanggal">Tanggal</label>
+                    {% if validasi['tanggal'] is defined %}
+                      <p class="pull-right text-right text-danger">{{validasi['tanggal']}}</p>
+                    {% endif %}
+                    <input type="date" class="form-control" name="tanggal" placeholder="tanggal">
+                  </div> 
                 </div>
               </div>
               <!-- /.box-body -->
@@ -88,12 +102,10 @@
 
 {% block morejs %}
 <script src="{{url('adminlte/plugins/iCheck/icheck.min.js')}}"></script>
-<script src="{{url('adminlte/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
 <script type="text/javascript">
 $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
     checkboxClass: 'icheckbox_minimal-blue',
     radioClass   : 'iradio_minimal-blue'
   });
-$('.select2').select2();
 </script>
 {% endblock %}

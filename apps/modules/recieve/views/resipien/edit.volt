@@ -161,7 +161,6 @@ $(document).ready(function (e) {
           $.each(data, function( key, value ) {
             $("#"+key).show();
             $("#"+key).html(value);
-            console.log(value)
           });
         }
       }

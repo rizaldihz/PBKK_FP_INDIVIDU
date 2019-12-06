@@ -15,12 +15,14 @@ class Donasi extends My_Model
 	public $jumlah;
 	public $judul;
 	public $tipe;
+    public $tanggal;
+    public $status;
     // public $created_at;
 
 
 	public function initialize()
     {
-        $this->setSource('kebutuhan');
+        $this->setSource('donasi');
 
         $this->belongsTo(
             'users_id',
@@ -43,13 +45,14 @@ class Donasi extends My_Model
 
     public function registrasi($data)
     {
-    	$this->$id=$data['id'];
-		$this->$keterangan=$data['keterangan'];
-		$this->$users_id=$data['users_id'];
-	    $this->$kebutuhan_id=$data['kebutuhan_id'];
-		$this->$jumlah=$data['jumlah'];
-		$this->$judul=$data['judul'];
-		$this->$tipe=$data['tipe'];
+		$this->keterangan=$data['keterangan'];
+		$this->users_id=$data['users_id'];
+	    $this->kebutuhan_id=$data['kebutuhan_id'];
+		$this->jumlah=$data['jumlah'];
+		$this->judul=$data['judul'];
+		$this->tipe=$data['tipe'];
+        $this->tanggal=$data['tanggal'];
+        $this->status=$data['status'];
     }	
 
 }
