@@ -25,6 +25,15 @@ class Users extends My_Model
 	public function initialize()
     {
         $this->setSource('users');
+
+        $this->hasMany(
+            'id',
+            'MyModel\Donasi',
+            'users_id',
+            [
+                'alias' => 'donasi'
+            ]
+        );
     }
 
     public function registrasi($data)

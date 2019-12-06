@@ -11,6 +11,7 @@ class Kebutuhan extends My_Model
 	public $nama;
 	public $jumlah;
 	public $label_id;
+    public $nominal_uang;
 	public $keterangan;
 	public $file;
 	public $resipien_id;
@@ -38,12 +39,22 @@ class Kebutuhan extends My_Model
                 'alias' => 'resipien'
             ]
         );
+
+        $this->hasMany(
+            'id',
+            'MyModel\Donasi',
+            'kebutuhan_id',
+            [
+                'alias' => 'donasi'
+            ]
+        );
     }
 
     public function registrasi($data)
     {
 	    $this->nama = $data['nama'];
 	    $this->jumlah = $data['jumlah'];
+        $this->nominal_uang = $data['nominal_uang'];
 		$this->label_id = $data['label_id'];
 		$this->keterangan = $data['keterangan'];
 		// $this->file = $data['file'];

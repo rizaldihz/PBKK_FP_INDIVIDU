@@ -32,14 +32,24 @@ return array(
         'defaultController' => 'authentication',
         'defaultAction' => 'index'
     ],
-    'administrator' => [
-        'namespace' => 'MyModule\Admin',
-        'webControllerNamespace' => 'MyModule\Admin\Controllers\Web',
-        'apiControllerNamespace' => 'MyModule\Admin\Controllers\Api',
-        'className' => 'MyModule\Admin\Module',
-        'path' => APP_PATH . '/modules/administrator/Module.php',
+    'recieve' => [
+        'namespace' => 'MyModule\Recieve',
+        'webControllerNamespace' => 'MyModule\Recieve\Controllers\Web',
+        'apiControllerNamespace' => 'MyModule\Recieve\Controllers\Api',
+        'className' => 'MyModule\Recieve\Module',
+        'path' => APP_PATH . '/modules/recieve/Module.php',
         'defaultRouting' => true,
-        'defaultController' => 'administrator',
+        'defaultController' => 'resipien',
+        'defaultAction' => 'index'
+    ],
+    'donasi' => [
+        'namespace' => 'MyModule\Donasi',
+        'webControllerNamespace' => 'MyModule\Donasi\Controllers\Web',
+        'apiControllerNamespace' => 'MyModule\Donasi\Controllers\Api',
+        'className' => 'MyModule\Donasi\Module',
+        'path' => APP_PATH . '/modules/donasi/Module.php',
+        'defaultRouting' => true,
+        'defaultController' => 'donasi',
         'defaultAction' => 'index'
     ],
 );

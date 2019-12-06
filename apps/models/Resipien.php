@@ -13,6 +13,7 @@ class Resipien extends My_Model
     public $no_telp;
     public $jk;
     public $ktp;
+    public $file;
     public $latar_belakang;
     // public $created_at;
 

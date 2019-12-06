@@ -51,101 +51,129 @@ $di['router'] = function() use ($defaultModule, $modules, $di, $config) {
 	]);
 
 	$router->addGet('/resipien/tambah', [
-	    'namespace' => 'MyModule\Admin\Controllers\Web',
-		'module' => 'administrator',
+	    'namespace' => 'MyModule\Recieve\Controllers\Web',
+		'module' => 'recieve',
 	    'controller' => 'resipien',
 	    'action' => 'tambah'
 	]);
 
 	$router->addPost('/resipien/tambah', [
-	    'namespace' => 'MyModule\Admin\Controllers\Web',
-		'module' => 'administrator',
+	    'namespace' => 'MyModule\Recieve\Controllers\Web',
+		'module' => 'recieve',
 	    'controller' => 'resipien',
 	    'action' => 'tambah'
 	]);
 
 	$router->addGet('/resipien', [
-	    'namespace' => 'MyModule\Admin\Controllers\Web',
-		'module' => 'administrator',
+	    'namespace' => 'MyModule\Recieve\Controllers\Web',
+		'module' => 'recieve',
 	    'controller' => 'resipien',
 	    'action' => 'index'
 	]);
 
 	$router->addPost('/resipien', [
-	    'namespace' => 'MyModule\Admin\Controllers\Web',
-		'module' => 'administrator',
+	    'namespace' => 'MyModule\Recieve\Controllers\Web',
+		'module' => 'recieve',
 	    'controller' => 'resipien',
 	    'action' => 'index'
 	]);
 
 	$router->addGet('/resipien/edit/{param}', [
-	    'namespace' => 'MyModule\Admin\Controllers\Web',
-		'module' => 'administrator',
+	    'namespace' => 'MyModule\Recieve\Controllers\Web',
+		'module' => 'recieve',
 	    'controller' => 'resipien',
 	    'action' => 'edit'
 	]);
 
 	$router->addPost('/resipien/edit', [
-	    'namespace' => 'MyModule\Admin\Controllers\Web',
-		'module' => 'administrator',
+	    'namespace' => 'MyModule\Recieve\Controllers\Web',
+		'module' => 'recieve',
 	    'controller' => 'resipien',
 	    'action' => 'edit'
 	]);
 
 	$router->addPost('/resipien/hapus', [
-	    'namespace' => 'MyModule\Admin\Controllers\Web',
-		'module' => 'administrator',
+	    'namespace' => 'MyModule\Recieve\Controllers\Web',
+		'module' => 'recieve',
 	    'controller' => 'resipien',
 	    'action' => 'hapus'
 	]);
 
 	$router->addGet('/kebutuhan/tambah', [
-	    'namespace' => 'MyModule\Admin\Controllers\Web',
-		'module' => 'administrator',
+	    'namespace' => 'MyModule\Recieve\Controllers\Web',
+		'module' => 'recieve',
 	    'controller' => 'kebutuhan',
 	    'action' => 'tambah'
 	]);
 
 	$router->addPost('/kebutuhan/tambah', [
-	    'namespace' => 'MyModule\Admin\Controllers\Web',
-		'module' => 'administrator',
+	    'namespace' => 'MyModule\Recieve\Controllers\Web',
+		'module' => 'recieve',
 	    'controller' => 'kebutuhan',
 	    'action' => 'tambah'
 	]);
 
 	$router->addGet('/kebutuhan', [
-	    'namespace' => 'MyModule\Admin\Controllers\Web',
-		'module' => 'administrator',
+	    'namespace' => 'MyModule\Recieve\Controllers\Web',
+		'module' => 'recieve',
 	    'controller' => 'kebutuhan',
 	    'action' => 'index'
 	]);
 
 	$router->addPost('/kebutuhan', [
-	    'namespace' => 'MyModule\Admin\Controllers\Web',
-		'module' => 'administrator',
+	    'namespace' => 'MyModule\Recieve\Controllers\Web',
+		'module' => 'recieve',
 	    'controller' => 'kebutuhan',
 	    'action' => 'index'
 	]);
 
 	$router->addGet('/kebutuhan/edit/{param}', [
-	    'namespace' => 'MyModule\Admin\Controllers\Web',
-		'module' => 'administrator',
+	    'namespace' => 'MyModule\Recieve\Controllers\Web',
+		'module' => 'recieve',
 	    'controller' => 'kebutuhan',
 	    'action' => 'edit'
 	]);
 
 	$router->addPost('/kebutuhan/edit', [
-	    'namespace' => 'MyModule\Admin\Controllers\Web',
-		'module' => 'administrator',
+	    'namespace' => 'MyModule\Recieve\Controllers\Web',
+		'module' => 'recieve',
 	    'controller' => 'kebutuhan',
 	    'action' => 'edit'
 	]);
 
 	$router->addPost('/kebutuhan/hapus', [
-	    'namespace' => 'MyModule\Admin\Controllers\Web',
-		'module' => 'administrator',
+	    'namespace' => 'MyModule\Recieve\Controllers\Web',
+		'module' => 'recieve',
 	    'controller' => 'kebutuhan',
 	    'action' => 'hapus'
+	]);
+
+	$router->addGet('/donasi/tambah', [
+	    'namespace' => 'MyModule\Donasi\Controllers\Web',
+		'module' => 'donasi',
+	    'controller' => 'donasi',
+	    'action' => 'tambah'
+	]);
+
+	$router->addPost('/donasi/tambah', [
+	    'namespace' => 'MyModule\Donasi\Controllers\Web',
+		'module' => 'donasi',
+	    'controller' => 'donasi',
+	    'action' => 'tambah'
+	]);
+
+	$router->addGet('/donasi', [
+	    'namespace' => 'MyModule\Donasi\Controllers\Web',
+		'module' => 'donasi',
+	    'controller' => 'donasi',
+	    'action' => 'index'
+	]);
+
+	$router->addPost('/donasi', [
+	    'namespace' => 'MyModule\Donasi\Controllers\Web',
+		'module' => 'donasi',
+	    'controller' => 'donasi',
+	    'action' => 'index'
 	]);
 	/**
 	 * Not Found Routing
